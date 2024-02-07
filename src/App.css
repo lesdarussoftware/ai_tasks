@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat Variable', sans-serif;
+}
+
+body {
+  background-color: #05384D;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="submit"] {
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 40%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #6BD089;
+  color: white;
+  transition: 300ms all;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #96DDAB;
+}
+
+textarea {
+  height: 300px;
+  resize: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.translationContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.translationContainer form textarea {
+  width: 100%;
+}
+
+.translationContainer form,
+.translationContainer textarea {
+  width: 50%;
+}
+
+.loaderContainer {
+  display: block;
+  width: 70%;
+  color: white;
+  margin: 0 auto;
+}
+
+.loaderContainer label {
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.progressContainer {
+  background-color: #0D7DAB;
+  border-radius: 5px;
+}
+
+.progressBar {
+  background-color: #96DDAB;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
