@@ -12,8 +12,8 @@ self.addEventListener('message', async (event) => {
   
     // Actually perform the translation
     let output = await translator(event.data.text, {
-        tgt_lang: 'eng_Latn',
-        src_lang: 'spa_Latn',
+        tgt_lang: event.data.target,
+        src_lang: event.data.source,
   
         // Allows for partial output
         callback_function: x => {
