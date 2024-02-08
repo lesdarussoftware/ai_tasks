@@ -115,11 +115,11 @@ textarea {
   border: none;
 }
 
-.translationSection {
+.doubleTextareaSection {
   width: 50%;
 }
 
-.translationSection textarea {
+.doubleTextareaSection textarea {
   width: 100%;
 }
 
@@ -177,7 +177,7 @@ footer {
     gap: 20px;
   }
 
-  .translationSection {
+  .doubleTextareaSection {
     width: calc(100% - 30px);
   }
 

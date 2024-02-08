@@ -1,10 +1,10 @@
-import { MyTranslationPipeline } from "./pipeline"
+import { AITasksTranslationPipeline } from "./pipeline"
 
 // Listen for messages from the main thread
 self.addEventListener('message', async (event) => {
     // Retrieve the translation pipeline. When called for the first time,
     // this will load the pipeline and save it for future use.
-    let translator = await MyTranslationPipeline.getInstance(x => {
+    let translator = await AITasksTranslationPipeline.getInstance(x => {
         // We also add a progress callback to the pipeline so that we can
         // track model loading.
         self.postMessage(x)

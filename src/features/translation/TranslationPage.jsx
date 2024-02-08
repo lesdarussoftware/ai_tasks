@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaExchangeAlt } from "react-icons/fa";
 
 import { useModel } from "../../hooks/useModel"
 
 import { Loader } from "../../components/Loader"
 import LanguageSelector from "./LanguageSelector"
+import { InputAndOutputTextarea } from "../../components/InputAndOutputTextarea";
 
 export function TranslationPage() {
 
@@ -56,21 +57,14 @@ export function TranslationPage() {
                     onChange={e => setTargetLanguage(e.target.value)}
                 />
             </div>
-            <div className="translationContainer">
-                <div className="translationSection">
-                    <form onSubmit={handleSubmit}>
-                        <textarea
-                            value={input}
-                            onChange={e => setInput(e.target.value)}
-                            placeholder="Ingrese aquí el texto...">
-                        </textarea>
-                        <input type="submit" value="Traducir" disabled={disabled} />
-                    </form>
-                </div>
-                <div className="translationSection">
-                    <textarea placeholder="Resultado" value={output} readOnly></textarea>
-                </div>
-            </div>
+            <InputAndOutputTextarea
+                handleSubmit={handleSubmit}
+                input={input}
+                setInput={setInput}
+                disabled={disabled}
+                submitValue="Traducir"
+                output={output}
+            />
             <Loader ready={ready} progressItems={progressItems} />
         </>
     )

@@ -23,7 +23,9 @@ export function Layout({ children }) {
                         }}>
                             Traducción
                         </li>
-                        <li>
+                        <li onClick={() => navigate('/resumen')} style={{
+                            backgroundColor: pathname === '/resumen' ? '#6BD089' : ''
+                        }}>
                             Resumen
                         </li>
                         <li>
