@@ -1,13 +1,20 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
+
 import { TranslationPage } from './features/translation/TranslationPage'
+import { Layout } from './components/Layout'
+import { HomePage } from './features/pages/HomePage'
+
+import './App.css'
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<TranslationPage />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/traduccion' element={<TranslationPage />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   )
 }
