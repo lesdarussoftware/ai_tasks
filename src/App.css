@@ -7,7 +7,7 @@
 body {
   background-color: #05384D;
   padding: 20px;
-  padding-bottom: 0;
+  padding-bottom: 5px;
   color: white;
 }
 
@@ -16,6 +16,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  font-family: 'Syncopate', sans-serif;
+  width: 50%;
 }
 
 header nav {
@@ -28,13 +34,13 @@ header nav ul {
   list-style: none;
 }
 
-header nav ul li{
+header nav ul li {
   padding: 10px 30px;
   transition: 300ms all;
   border-radius: 5px;
 }
 
-header nav ul li:hover{
+header nav ul li:hover {
   cursor: pointer;
   background-color: #6BD089;
 }
@@ -70,26 +76,24 @@ textarea {
   resize: none;
   border-radius: 5px;
   padding: 10px;
-  width: 100%;
 }
 
 .translationContainer,
 .langSelectorContainer {
   display: flex;
-  justify-content: center;
-  width: 70%;
   margin: 0 auto;
   gap: 30px;
+  justify-content: space-around;
+  width: calc(70% + 110px);
 }
 
 .langSelectorContainer {
-  justify-content: center;
   margin-bottom: 20px;
 }
 
 .exchangeLangIcon {
-  scale: 1.1;
-  margin-top: 5px;
+  scale: 1.3;
+  margin-top: 30px;
 }
 
 .exchangeLangIcon:hover {
@@ -100,6 +104,11 @@ textarea {
   text-align: center;
 }
 
+.languageSelector label {
+  display: block;
+  margin-bottom: 5px;
+}
+
 .languageSelector select {
   padding: 5px;
   border-radius: 5px;
@@ -108,6 +117,10 @@ textarea {
 
 .translationSection {
   width: 50%;
+}
+
+.translationSection textarea {
+  width: 100%;
 }
 
 .loaderContainer {
@@ -137,4 +150,64 @@ textarea {
 
 footer {
   text-align: right;
+}
+
+@media (max-width: 768px) {
+
+  header {
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+  }
+
+  header h1,
+  header nav {
+    width: 100%;
+    text-align: center;
+  }
+
+  .translationContainer,
+  .langSelectorContainer {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .langSelectorContainer {
+    gap: 20px;
+  }
+
+  .translationSection {
+    width: calc(100% - 30px);
+  }
+
+  .exchangeLangIconContainer {
+    text-align: center;
+  }
+
+  .exchangeLangIcon {
+    margin-top: 0;
+    rotate: 90deg;
+  }
+
+  .loaderContainer {
+    width: 100%;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  header nav ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .progressBar {
+    font-size: .7rem;
+  }
 }

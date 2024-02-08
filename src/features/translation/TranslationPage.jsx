@@ -47,7 +47,9 @@ export function TranslationPage() {
                     defaultLanguage={sourceLanguage}
                     onChange={e => setSourceLanguage(e.target.value)}
                 />
-                <FaExchangeAlt className="exchangeLangIcon" onClick={handleExchange} />
+                <div className="exchangeLangIconContainer">
+                    <FaExchangeAlt className="exchangeLangIcon" onClick={handleExchange} />
+                </div>
                 <LanguageSelector
                     type="Destino"
                     defaultLanguage={targetLanguage}
