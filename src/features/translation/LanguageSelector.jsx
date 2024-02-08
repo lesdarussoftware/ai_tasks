@@ -1,4 +1,4 @@
-import { LANGUAGES } from './languages'
+import { LANGUAGES, LABELS } from './languages'
 
 export default function LanguageSelector({ type, onChange, defaultLanguage }) {
     return (
@@ -6,7 +6,7 @@ export default function LanguageSelector({ type, onChange, defaultLanguage }) {
             <label>{type} </label>
             <select onChange={onChange} value={defaultLanguage}>
                 {Object.entries(LANGUAGES).map(([key, value]) => {
-                    return <option key={key} value={value}>{key}</option>
+                    return <option key={key} value={value}>{LABELS[key]}</option>
                 })}
             </select>
         </div>
