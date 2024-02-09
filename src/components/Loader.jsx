@@ -4,7 +4,7 @@ export function Loader({ ready, progressItems }) {
     return (
         <div className="loaderContainer">
             {ready === false && (
-                <label>Cargando archivos del modelo... (por única vez)</label>
+                <label>Descargando archivos del modelo...</label>
             )}
             {progressItems.map(data => (
                 <div key={data.file}>

@@ -51,13 +51,13 @@ export function TextToSpeech() {
                 <label htmlFor="model">Modelo a utilizar</label>
                 <select name="model" onChange={e => setModel(e.target.value)}>
                     <option value="ylacombe/mms-spa-finetuned-argentinian-monospeaker">
-                        Argentina
+                        ylacombe/mms-spa-finetuned-argentinian-monospeaker (voz argentina)
                     </option>
                     <option value="ylacombe/mms-spa-finetuned-chilean-monospeaker">
-                        Chile
+                        ylacombe/mms-spa-finetuned-chilean-monospeaker (voz chilena)
                     </option>
                     <option value="ylacombe/mms-spa-finetuned-colombian-monospeaker">
-                        Colombia
+                        ylacombe/mms-spa-finetuned-colombian-monospeaker (voz colombiana)
                     </option>
                 </select>
             </div>

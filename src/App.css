@@ -97,6 +97,16 @@ a {
   color: white;
 }
 
+.svgContainer {
+  background-color: #6BD089;
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .notFoundText {
   text-align: center;
   margin-top: 200px;
@@ -151,6 +161,17 @@ a {
   margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
+}
+
+.homeContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.homeP {
+  /* line-height: 10px; */
+  text-indent: 50px;
 }
 
 .summarizationDisclaimer {
@@ -256,7 +277,7 @@ a {
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 570px) {
   .modelSelector select {
     width: 90%;
   }
