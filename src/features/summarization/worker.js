@@ -1,11 +1,11 @@
 import { AITasksSummarizationPipeline } from "./pipeline"
 
 self.addEventListener('message', async (event) => {
-    
+
     let summarizer = await AITasksSummarizationPipeline.getInstance(x => {
         self.postMessage(x)
-    })
-  
+    }, event.data.model)
+
     let output = await summarizer(event.data.text, {
         callback_function: x => {
             self.postMessage({
@@ -14,9 +14,9 @@ self.addEventListener('message', async (event) => {
             })
         }
     })
-  
+
     self.postMessage({
         status: 'complete',
         output
     })
-  })
+})
