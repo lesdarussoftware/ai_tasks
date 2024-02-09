@@ -21,11 +21,11 @@ header {
 
 header h1 {
   font-family: 'Syncopate', sans-serif;
-  width: 50%;
+  width: 35%;
 }
 
 header nav {
-  width: 50%;
+  width: 65%;
 }
 
 header nav ul {
@@ -56,7 +56,8 @@ form {
   flex-direction: column;
 }
 
-form input[type="submit"] {
+form input[type="submit"],
+.downloadBtn {
   margin: 0 auto;
   margin-top: 15px;
   width: 40%;
@@ -68,9 +69,18 @@ form input[type="submit"] {
   color: white;
 }
 
-form input[type="submit"]:hover {
+form input[type="submit"]:hover,
+.downloadBtn:hover {
   cursor: pointer;
   background-color: #96DDAB;
+}
+
+.downloadBtn {
+  width: 20%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 textarea {
@@ -88,6 +98,11 @@ select {
 
 footer {
   text-align: right;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .modelSelector {

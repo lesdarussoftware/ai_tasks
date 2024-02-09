@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react"
+import { WaveFile } from "wavefile"
+
 import { useModel } from "../../hooks/useModel"
 
 import { Loader } from "../../components/Loader"
@@ -15,7 +18,9 @@ export function TextToSpeech() {
         setDisabled,
         model,
         setModel
-    } = useModel({ feature: 'summarization', defaultModel: 'ylacombe/mms-spa-finetuned-argentinian-monospeaker' })
+    } = useModel({ feature: 'text-to-speech', defaultModel: 'ylacombe/mms-spa-finetuned-argentinian-monospeaker' })
+
+    const [downloadLink, setDownloadLink] = useState(null)
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -24,6 +29,21 @@ export function TextToSpeech() {
             worker.current.postMessage({ model, text: input })
         }
     }
+
+    const handleDownload = () => {
+        const wav = new WaveFile()
+        wav.fromScratch(1, output.sampling_rate, "32f", output.audio)
+
+        const wavBlob = new Blob([wav.toBuffer()], { type: "audio/wav" })
+        const url = window.URL.createObjectURL(wavBlob)
+        setDownloadLink(url)
+    }
+
+    useEffect(() => {
+        if (output.audio) {
+            handleDownload()
+        }
+    }, [output])
 
     return (
         <>
@@ -41,6 +61,13 @@ export function TextToSpeech() {
                     </option>
                 </select>
             </div>
+            {ready &&
+                <a href={downloadLink} download="audio.wav">
+                    <button type="button" className="downloadBtn" disabled={!downloadLink}>
+                        {downloadLink ? 'Descargar audio' : 'Generando audio...'}
+                    </button>
+                </a>
+            }
             <div className="synthesizerFormContainer">
                 <form onSubmit={handleSubmit}>
                     <textarea

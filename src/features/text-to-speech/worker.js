@@ -6,7 +6,7 @@ self.addEventListener('message', async (event) => {
         x => self.postMessage(x),
         'text-to-speech',
         event.data.model,
-        true
+        false
     )
 
     let output = await synthesizer(event.data.text)

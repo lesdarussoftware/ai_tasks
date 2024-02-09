@@ -56,7 +56,7 @@ export function useModel({ feature, defaultModel }) {
                     break
 
                 case 'complete':
-                    // Generation complete: re-enable the "Translate" button
+                    if(feature === 'text-to-speech') setOutput(e.data.output)
                     setDisabled(false)
                     break
             }
