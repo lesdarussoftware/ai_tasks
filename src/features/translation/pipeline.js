@@ -5,11 +5,13 @@ env.useBrowserCache = false
 export class AITasksTranslationPipeline {
 
     static task = 'translation'
-    static model = 'Xenova/nllb-200-distilled-600M'
+    static model
     static instance = null
 
-    static async getInstance(progress_callback = null) {
-        
+    static async getInstance(progress_callback = null, model) {
+
+        this.model = model
+
         if (this.instance === null) {
             this.instance = pipeline(this.task, this.model, { progress_callback })
         }

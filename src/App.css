@@ -78,6 +78,26 @@ textarea {
   padding: 10px;
 }
 
+select {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.modelSelector {
+  margin-bottom: 10px;
+}
+
+.modelSelector,
+.languageSelector {
+  text-align: center;
+}
+
+.summarizationDisclaimer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .translationContainer,
 .langSelectorContainer {
   display: flex;
@@ -100,19 +120,10 @@ textarea {
   cursor: pointer;
 }
 
-.languageSelector {
-  text-align: center;
-}
-
-.languageSelector label {
+.languageSelector label,
+.modelSelector label {
   display: block;
   margin-bottom: 5px;
-}
-
-.languageSelector select {
-  padding: 5px;
-  border-radius: 5px;
-  border: none;
 }
 
 .doubleTextareaSection {

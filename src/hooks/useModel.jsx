@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 
-export function useModel({ feature }) {
+export function useModel({ feature, defaultModel }) {
 
     const [ready, setReady] = useState(null)
     const [disabled, setDisabled] = useState(false)
     const [progressItems, setProgressItems] = useState([])
+    const [model, setModel] = useState(defaultModel)
     const [input, setInput] = useState('')
     const [output, setOutput] = useState('')
 
@@ -72,6 +73,8 @@ export function useModel({ feature }) {
         disabled,
         progressItems,
         output,
-        setDisabled
+        setDisabled,
+        model,
+        setModel
     }
 }

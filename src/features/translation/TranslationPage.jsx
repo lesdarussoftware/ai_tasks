@@ -6,6 +6,7 @@ import { useModel } from "../../hooks/useModel"
 import { Loader } from "../../components/Loader"
 import LanguageSelector from "./LanguageSelector"
 import { InputAndOutputTextarea } from "../../components/InputAndOutputTextarea";
+import { ModelSelector } from "../../components/ModelSelector";
 
 export function TranslationPage() {
 
@@ -17,8 +18,10 @@ export function TranslationPage() {
         setInput,
         output,
         disabled,
-        setDisabled
-    } = useModel({ feature: 'translation' })
+        setDisabled,
+        model,
+        setModel
+    } = useModel({ feature: 'translation', defaultModel: 'Xenova/nllb-200-distilled-600M' })
 
     const [sourceLanguage, setSourceLanguage] = useState('eng_Latn')
     const [targetLanguage, setTargetLanguage] = useState('fra_Latn')
@@ -28,6 +31,7 @@ export function TranslationPage() {
         if (input.length > 0) {
             setDisabled(true)
             worker.current.postMessage({
+                model,
                 text: input,
                 source: sourceLanguage,
                 target: targetLanguage
@@ -42,6 +46,13 @@ export function TranslationPage() {
 
     return (
         <>
+            <ModelSelector
+                setModel={setModel}
+                options={[
+                    'Xenova/nllb-200-distilled-600M',
+                    'Xenova/mbart-large-50-many-to-many-mmt'
+                ]}
+            />
             <div className="langSelectorContainer">
                 <LanguageSelector
                     type="Fuente"

@@ -8,13 +8,13 @@ self.addEventListener('message', async (event) => {
         // We also add a progress callback to the pipeline so that we can
         // track model loading.
         self.postMessage(x)
-    })
-  
+    }, event.data.model)
+
     // Actually perform the translation
     let output = await translator(event.data.text, {
         tgt_lang: event.data.target,
         src_lang: event.data.source,
-  
+
         // Allows for partial output
         callback_function: x => {
             self.postMessage({
@@ -23,10 +23,10 @@ self.addEventListener('message', async (event) => {
             })
         }
     })
-  
+
     // Send the output back to the main thread
     self.postMessage({
         status: 'complete',
         output: output,
     })
-  })
+})

@@ -1,3 +1,5 @@
+import Emoji from 'react-emoji-render';
+
 import { InputAndOutputTextarea } from "../../components/InputAndOutputTextarea"
 import { Loader } from "../../components/Loader"
 import { useModel } from "../../hooks/useModel"
@@ -25,6 +27,10 @@ export function SummarizationPage() {
 
     return (
         <>
+            <p className='summarizationDisclaimer'>
+                <Emoji text="Por el momento, el resumen de textos solo está disponible en inglés,
+                pero te invitamos a probar diferentes modelos :wink:" />
+            </p>
             <InputAndOutputTextarea
                 handleSubmit={handleSubmit}
                 input={input}
