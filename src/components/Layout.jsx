@@ -28,6 +28,11 @@ export function Layout({ children }) {
                         }}>
                             Resumen
                         </li>
+                        {/* <li onClick={() => navigate('/texto-a-voz')} style={{
+                            backgroundColor: pathname === '/texto-a-voz' ? '#6BD089' : ''
+                        }}>
+                            Texto a voz
+                        </li> */}
                         <li>
                             Comunidad
                         </li>

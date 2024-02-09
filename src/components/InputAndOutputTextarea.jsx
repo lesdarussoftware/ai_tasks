@@ -1,6 +1,6 @@
 export function InputAndOutputTextarea({ handleSubmit, input, setInput, disabled, submitValue, output }) {
     return (
-        <div className="translationContainer">
+        <div className="doubleTextareaSectionContainer">
             <div className="doubleTextareaSection">
                 <form onSubmit={handleSubmit}>
                     <textarea

@@ -8,13 +8,13 @@ export class TransformersPipeline {
     static model
     static instance = null
 
-    static async getInstance(progress_callback = null, task, model) {
+    static async getInstance(progress_callback = null, task, model, quantized = null) {
 
         this.task = task
         this.model = model
 
         if (this.instance === null) {
-            this.instance = pipeline(this.task, this.model, { progress_callback })
+            this.instance = pipeline(this.task, this.model, { progress_callback, quantized })
         }
 
         return this.instance
