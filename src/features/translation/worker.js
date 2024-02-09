@@ -1,14 +1,16 @@
-import { AITasksTranslationPipeline } from "./pipeline"
+import { TransformersPipeline } from "../../helpers/transformersPipeline"
 
 // Listen for messages from the main thread
 self.addEventListener('message', async (event) => {
     // Retrieve the translation pipeline. When called for the first time,
     // this will load the pipeline and save it for future use.
-    let translator = await AITasksTranslationPipeline.getInstance(x => {
+    let translator = await TransformersPipeline.getInstance(
         // We also add a progress callback to the pipeline so that we can
         // track model loading.
-        self.postMessage(x)
-    }, event.data.model)
+        x => self.postMessage(x),
+        'translation',
+        event.data.model
+    )
 
     // Actually perform the translation
     let output = await translator(event.data.text, {

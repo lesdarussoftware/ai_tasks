@@ -2,14 +2,15 @@ import { pipeline, env } from '@xenova/transformers'
 env.allowLocalModels = false
 env.useBrowserCache = false
 
-export class AITasksSummarizationPipeline {
+export class TransformersPipeline {
 
-    static task = 'summarization'
+    static task
     static model
     static instance = null
 
-    static async getInstance(progress_callback = null, model) {
+    static async getInstance(progress_callback = null, task, model) {
 
+        this.task = task
         this.model = model
 
         if (this.instance === null) {

@@ -1,10 +1,12 @@
-import { AITasksSummarizationPipeline } from "./pipeline"
+import { TransformersPipeline } from "../../helpers/transformersPipeline"
 
 self.addEventListener('message', async (event) => {
 
-    let summarizer = await AITasksSummarizationPipeline.getInstance(x => {
-        self.postMessage(x)
-    }, event.data.model)
+    let summarizer = await TransformersPipeline.getInstance(
+        x => self.postMessage(x),
+        'summarization',
+        event.data.model
+    )
 
     let output = await summarizer(event.data.text, {
         callback_function: x => {
