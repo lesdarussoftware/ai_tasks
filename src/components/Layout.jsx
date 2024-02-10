@@ -33,7 +33,9 @@ export function Layout({ children }) {
                         }}>
                             Texto a voz
                         </li>
-                        <li>
+                        <li onClick={() => navigate('/comunidad')} style={{
+                            backgroundColor: pathname === '/comunidad' ? '#6BD089' : ''
+                        }}>
                             Comunidad
                         </li>
                     </ul>
