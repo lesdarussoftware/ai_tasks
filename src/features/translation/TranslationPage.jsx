@@ -23,8 +23,8 @@ export function TranslationPage() {
         setModel
     } = useModel({ feature: 'translation', defaultModel: 'Xenova/nllb-200-distilled-600M' })
 
-    const [sourceLanguage, setSourceLanguage] = useState('eng_Latn')
-    const [targetLanguage, setTargetLanguage] = useState('fra_Latn')
+    const [sourceLanguage, setSourceLanguage] = useState('spa_Latn')
+    const [targetLanguage, setTargetLanguage] = useState('eng_Latn')
 
     const handleSubmit = e => {
         e.preventDefault()

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { WaveFile } from "wavefile"
+import { LuLoader2 } from "react-icons/lu";
 
 import { useModel } from "../../hooks/useModel"
 
@@ -25,6 +26,7 @@ export function TextToSpeech() {
     const handleSubmit = e => {
         e.preventDefault()
         if (input.length > 0) {
+            setDownloadLink(null)
             setDisabled(true)
             worker.current.postMessage({ model, text: input })
         }
@@ -64,7 +66,13 @@ export function TextToSpeech() {
             {ready &&
                 <a href={downloadLink} download="audio.wav">
                     <button type="button" className="downloadBtn" disabled={!downloadLink}>
-                        {downloadLink ? 'Descargar audio' : 'Generando audio...'}
+                        {downloadLink ?
+                            'Descargar audio' :
+                            <div className="loaderIndicatorContainer">
+                                Generando audio
+                                <LuLoader2 className="loaderIndicator" />
+                            </div>
+                        }
                     </button>
                 </a>
             }
