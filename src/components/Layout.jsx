@@ -13,28 +13,28 @@ export function Layout({ children }) {
                 </h1>
                 <nav>
                     <ul>
-                        <li onClick={() => navigate('/')} style={{
-                            backgroundColor: pathname === '/' ? '#6BD089' : ''
+                        <li onClick={() => navigate('/ai_tasks/')} style={{
+                            backgroundColor: pathname === '/ai_tasks/' ? '#6BD089' : ''
                         }}>
                             Inicio
                         </li>
-                        <li onClick={() => navigate('/traduccion')} style={{
-                            backgroundColor: pathname === '/traduccion' ? '#6BD089' : ''
+                        <li onClick={() => navigate('/ai_tasks/traduccion')} style={{
+                            backgroundColor: pathname === '/ai_tasks/traduccion' ? '#6BD089' : ''
                         }}>
                             Traducción
                         </li>
-                        <li onClick={() => navigate('/resumen')} style={{
-                            backgroundColor: pathname === '/resumen' ? '#6BD089' : ''
+                        <li onClick={() => navigate('/ai_tasks/resumen')} style={{
+                            backgroundColor: pathname === '/ai_tasks/resumen' ? '#6BD089' : ''
                         }}>
                             Resumen
                         </li>
-                        <li onClick={() => navigate('/texto-a-voz')} style={{
-                            backgroundColor: pathname === '/texto-a-voz' ? '#6BD089' : ''
+                        <li onClick={() => navigate('/ai_tasks/texto-a-voz')} style={{
+                            backgroundColor: pathname === '/ai_tasks/texto-a-voz' ? '#6BD089' : ''
                         }}>
                             Texto a voz
                         </li>
-                        <li onClick={() => navigate('/comunidad')} style={{
-                            backgroundColor: pathname === '/comunidad' ? '#6BD089' : ''
+                        <li onClick={() => navigate('/ai_tasks/comunidad')} style={{
+                            backgroundColor: pathname === '/ai_tasks/comunidad' ? '#6BD089' : ''
                         }}>
                             Comunidad
                         </li>
