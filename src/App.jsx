@@ -15,11 +15,11 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path='/ai-tasks/' element={<HomePage />} />
-          <Route path='/ai-tasks/traduccion' element={<TranslationPage />} />
-          <Route path='/ai-tasks/resumen' element={<SummarizationPage />} />
-          <Route path='/ai-tasks/texto-a-voz' element={<TextToSpeech />} />
-          <Route path='/ai-tasks/comunidad' element={<CommunityPage />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/traduccion' element={<TranslationPage />} />
+          <Route path='/resumen' element={<SummarizationPage />} />
+          <Route path='/texto-a-voz' element={<TextToSpeech />} />
+          <Route path='/comunidad' element={<CommunityPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
       </Layout>
