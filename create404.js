@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+import fs from 'fs'
+
+const content = `<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -37,4 +39,6 @@
   </head>
   <body>
   </body>
-</html>
+</html>`
+
+fs.writeFileSync('dist/404.html', content)

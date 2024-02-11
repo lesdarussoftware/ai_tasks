@@ -42,6 +42,8 @@ export function HomePage() {
                     de manera muy inteligente. Y Hugging Face es como una comunidad de amigos que comparten
                     estas tecnologías para que todos podamos usarlas. En AI Tasks, utilizamos una herramienta llamada
                     Transformers.js, que permite que estos modelos se descarguen y se ejecuten directamente en tu navegador.
+                    Ten en cuenta que el modelo se descargará del servidor la primera vez que lo uses y si no cambias de
+                    página, ya que deberá solicitarse de nuevo.
                 </p>
             </article>
             <article className="homeSection">

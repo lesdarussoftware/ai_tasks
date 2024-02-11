@@ -152,6 +152,14 @@ a {
   text-align: center;
 }
 
+.loaderContainer label:nth-child(1) {
+  margin-bottom: 0;
+}
+
+.loaderContainer label:nth-child(2) {
+  margin-top: 10px;
+}
+
 .loaderIndicatorContainer {
   display: flex;
   align-items: center;
