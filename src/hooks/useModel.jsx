@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react"
 
+import SummarizationWorker from '../features/summarization/worker?worker'
+import TranslationWorker from '../features/translation/worker?worker'
+import TextToSpeechWorker from '../features/text-to-speech/worker?worker'
+
 export function useModel({ feature, defaultModel }) {
 
     const [ready, setReady] = useState(null)
@@ -13,10 +17,12 @@ export function useModel({ feature, defaultModel }) {
 
     useEffect(() => {
         if (!worker.current) {
-            worker.current = new Worker(
-                new URL('../features/' + feature + '/worker.js',
-                    import.meta.url), { type: 'module' }
-            )
+            const getWorkerScript = () => {
+                if (feature === 'summarization') return new SummarizationWorker()
+                if (feature === 'translation') return new TranslationWorker()
+                if (feature === 'text-to-speech') return new TextToSpeechWorker()
+            }
+            worker.current = getWorkerScript()
         }
         const onMessageReceived = e => {
             switch (e.data.status) {
@@ -56,7 +62,7 @@ export function useModel({ feature, defaultModel }) {
                     break
 
                 case 'complete':
-                    if(feature === 'text-to-speech') setOutput(e.data.output)
+                    if (feature === 'text-to-speech') setOutput(e.data.output)
                     setDisabled(false)
                     break
             }
