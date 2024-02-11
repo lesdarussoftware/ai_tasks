@@ -41,4 +41,4 @@ const content = `<!DOCTYPE html>
   </body>
 </html>`
 
-fs.writeFileSync('dist/404.html', content)
+fs.writeFileSync('docs/404.html', content)
