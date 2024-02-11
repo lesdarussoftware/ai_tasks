@@ -12,7 +12,7 @@ import './App.css'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/ai_tasks/'>
       <Layout>
         <Routes>
           <Route path='/ai_tasks/' element={<HomePage />} />
