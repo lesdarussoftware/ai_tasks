@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { WaveFile } from "wavefile"
 import { LuLoader2 } from "react-icons/lu";
 import { useModel } from "./hooks/useModel"
@@ -17,10 +17,10 @@ function App() {
     disabled,
     setDisabled,
     model,
-    setModel
+    setModel,
+    downloadLink,
+    setDownloadLink
   } = useModel('ylacombe/mms-spa-finetuned-argentinian-monospeaker')
-
-  const [downloadLink, setDownloadLink] = useState(null)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -54,7 +54,7 @@ function App() {
         </h1>
       </header>
       <main>
-        <section className="modelSelector">
+        <section className="model-selector">
           <label htmlFor="model">Modelo a utilizar</label>
           <select name="model" onChange={e => setModel(e.target.value)}>
             <option value="ylacombe/mms-spa-finetuned-argentinian-monospeaker">
@@ -70,18 +70,18 @@ function App() {
         </section>
         {ready &&
           <a href={downloadLink} download="audio.wav">
-            <button type="button" className="downloadBtn" disabled={!downloadLink}>
+            <button type="button" className="download-btn" disabled={!downloadLink}>
               {downloadLink ?
                 'Descargar audio' :
-                <div className="loaderIndicatorContainer">
+                <div className="loader-indicator-container">
                   Generando audio
-                  <LuLoader2 className="loaderIndicator" />
+                  <LuLoader2 className="loader-indicator" />
                 </div>
               }
             </button>
           </a>
         }
-        <section className="synthesizerFormContainer">
+        <section className="form-container">
           <form onSubmit={handleSubmit}>
             <textarea
               value={input}

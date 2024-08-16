@@ -10,16 +10,12 @@ export function useModel(defaultModel) {
     const [model, setModel] = useState(defaultModel)
     const [input, setInput] = useState('')
     const [output, setOutput] = useState('')
+    const [downloadLink, setDownloadLink] = useState(null)
 
     const worker = useRef(null)
 
     useEffect(() => {
-        if (!worker.current) {
-            const getWorkerScript = () => {
-                return new TextToSpeechWorker()
-            }
-            worker.current = getWorkerScript()
-        }
+        worker.current = new TextToSpeechWorker()
         const onMessageReceived = e => {
             switch (e.data.status) {
                 case 'initiate':
@@ -77,6 +73,8 @@ export function useModel(defaultModel) {
         output,
         setDisabled,
         model,
-        setModel
+        setModel,
+        downloadLink,
+        setDownloadLink
     }
 }

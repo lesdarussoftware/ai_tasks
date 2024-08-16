@@ -21,7 +21,7 @@ form {
 }
 
 form input[type="submit"],
-.downloadBtn {
+.download-btn {
   margin: 0 auto;
   margin-top: 15px;
   width: 40%;
@@ -34,7 +34,7 @@ form input[type="submit"],
 }
 
 form input[type="submit"]:hover,
-.downloadBtn:hover {
+.download-btn:hover {
   cursor: pointer;
   background-color: #96DDAB;
 }
@@ -57,7 +57,7 @@ a {
   color: white;
 }
 
-.downloadBtn {
+.download-btn {
   width: 20%;
   display: block;
   margin: 0 auto;
@@ -65,50 +65,64 @@ a {
   margin-bottom: 20px;
 }
 
-.modelSelector {
+.model-selector {
   margin-bottom: 10px;
   text-align: center;
 }
 
-.modelSelector label {
+.model-selector label {
   display: block;
   margin-bottom: 5px;
 }
 
-.loaderContainer {
+.loader-container {
   display: block;
   width: 70%;
   margin: 0 auto;
 }
 
-.loaderContainer label {
+.loader-container p {
   display: block;
   margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.loaderContainer label:nth-child(1) {
-  margin-bottom: 0;
+.loader-indicator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.loaderContainer label:nth-child(2) {
-  margin-top: 10px;
+.loader-indicator {
+  scale: 1.5;
+  animation: spin 1s linear infinite;
 }
 
-.progressContainer {
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progress-container {
   background-color: #0D7DAB;
   border-radius: 5px;
 }
 
-.progressBar {
+.progres-bar {
   background-color: #6BD089;
   margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
 }
 
-.synthesizerFormContainer {
+.form-container {
   width: 50%;
   margin: 0 auto;
 }
