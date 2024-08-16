@@ -7,17 +7,12 @@
 body {
   background-color: #05384D;
   padding: 20px;
-  padding-bottom: 5px;
   color: white;
 }
 
 header {
   padding: 0 50px;
-  margin-bottom: 30px;
-}
-
-main {
-  margin: 40px 0 30px 0;
+  margin-bottom: 100px;
 }
 
 form {
@@ -72,11 +67,12 @@ a {
 
 .modelSelector {
   margin-bottom: 10px;
+  text-align: center;
 }
 
-.modelSelector,
-.languageSelector {
-  text-align: center;
+.modelSelector label {
+  display: block;
+  margin-bottom: 5px;
 }
 
 .loaderContainer {
@@ -100,35 +96,19 @@ a {
   margin-top: 10px;
 }
 
-.loaderIndicatorContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.progressContainer {
+  background-color: #0D7DAB;
+  border-radius: 5px;
 }
 
-.loaderIndicator {
-  scale: 1.5;
-  animation: spin 1s linear infinite;
-}
-
-.languageSelector label,
-.modelSelector label {
-  display: block;
-  margin-bottom: 5px;
+.progressBar {
+  background-color: #6BD089;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .synthesizerFormContainer {
   width: 50%;
   margin: 0 auto;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
 }
