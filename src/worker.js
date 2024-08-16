@@ -1,4 +1,4 @@
-import { TransformersPipeline } from "../../helpers/transformersPipeline"
+import { TransformersPipeline } from "./transformersPipeline"
 
 self.addEventListener('message', async (event) => {
 

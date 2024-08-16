@@ -2,9 +2,9 @@ import { useEffect, useState } from "react"
 import { WaveFile } from "wavefile"
 import { LuLoader2 } from "react-icons/lu";
 
-import { useModel } from "../../hooks/useModel"
+import { useModel } from "./useModel"
 
-import { Loader } from "../../components/Loader"
+import { Loader } from "./Loader"
 
 export function TextToSpeech() {
 
@@ -19,7 +19,7 @@ export function TextToSpeech() {
         setDisabled,
         model,
         setModel
-    } = useModel({ feature: 'text-to-speech', defaultModel: 'ylacombe/mms-spa-finetuned-argentinian-monospeaker' })
+    } = useModel('ylacombe/mms-spa-finetuned-argentinian-monospeaker')
 
     const [downloadLink, setDownloadLink] = useState(null)
 
@@ -48,8 +48,13 @@ export function TextToSpeech() {
     }, [output])
 
     return (
-        <>
-            <div className="modelSelector">
+        <div>
+            <header>
+                <h1>
+                    Texto a voz con IA
+                </h1>
+            </header>
+            <section className="modelSelector">
                 <label htmlFor="model">Modelo a utilizar</label>
                 <select name="model" onChange={e => setModel(e.target.value)}>
                     <option value="ylacombe/mms-spa-finetuned-argentinian-monospeaker">
@@ -62,7 +67,7 @@ export function TextToSpeech() {
                         ylacombe/mms-spa-finetuned-colombian-monospeaker (voz colombiana)
                     </option>
                 </select>
-            </div>
+            </section>
             {ready &&
                 <a href={downloadLink} download="audio.wav">
                     <button type="button" className="downloadBtn" disabled={!downloadLink}>
@@ -76,7 +81,7 @@ export function TextToSpeech() {
                     </button>
                 </a>
             }
-            <div className="synthesizerFormContainer">
+            <section className="synthesizerFormContainer">
                 <form onSubmit={handleSubmit}>
                     <textarea
                         value={input}
@@ -85,8 +90,8 @@ export function TextToSpeech() {
                     </textarea>
                     <input type="submit" value="Sintetizar" disabled={disabled} />
                 </form>
-            </div>
+            </section>
             <Loader ready={ready} progressItems={progressItems} />
-        </>
+        </div>
     )
 }

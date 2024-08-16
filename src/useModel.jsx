@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 
-import SummarizationWorker from '../features/summarization/worker?worker'
-import TranslationWorker from '../features/translation/worker?worker'
-import TextToSpeechWorker from '../features/text-to-speech/worker?worker'
+import TextToSpeechWorker from './worker?worker'
 
-export function useModel({ feature, defaultModel }) {
+export function useModel(defaultModel) {
 
     const [ready, setReady] = useState(null)
     const [disabled, setDisabled] = useState(false)
@@ -18,9 +16,7 @@ export function useModel({ feature, defaultModel }) {
     useEffect(() => {
         if (!worker.current) {
             const getWorkerScript = () => {
-                if (feature === 'summarization') return new SummarizationWorker()
-                if (feature === 'translation') return new TranslationWorker()
-                if (feature === 'text-to-speech') return new TextToSpeechWorker()
+                return new TextToSpeechWorker()
             }
             worker.current = getWorkerScript()
         }
@@ -62,7 +58,7 @@ export function useModel({ feature, defaultModel }) {
                     break
 
                 case 'complete':
-                    if (feature === 'text-to-speech') setOutput(e.data.output)
+                    setOutput(e.data.output)
                     setDisabled(false)
                     break
             }
