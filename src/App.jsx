@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { WaveFile } from "wavefile"
 import { LuLoader2 } from "react-icons/lu";
-import { useModel } from "./useModel"
-import { Loader } from "./Loader"
+import { useModel } from "./hooks/useModel"
+import { Loader } from "./components/Loader"
 import './App.css'
 
 function App() {

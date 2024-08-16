@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 
-import TextToSpeechWorker from './worker?worker'
+import TextToSpeechWorker from '../helpers/worker?worker'
 
 export function useModel(defaultModel) {
 
